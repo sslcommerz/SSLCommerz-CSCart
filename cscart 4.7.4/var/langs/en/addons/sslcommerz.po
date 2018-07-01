@@ -1,0 +1,37 @@
+msgid ""
+msgstr "Project-Id-Version: tygh"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US"
+
+msgctxt "Addons::name::sslcommerz"
+msgid "SSLCOMMERZ Payment Gateway"
+msgstr "SSLCOMMERZ Payment Gateway"
+
+msgctxt "Addons::description::sslcommerz"
+msgid "1st Secured Online Payment Hub in Bangladesh"
+msgstr "1st Secured Online Payment Hub in Bangladesh"
+
+msgctxt "Languages::addons.sslcommerz.currency_not_support"
+msgid "Currency is not supoprt. Please contact administrator to set up currencies."
+msgstr "Currency is not supoprt. Please contact administrator to set up currencies."
+
+msgctxt "Languages::addons.sslcommerz.store_id"
+msgid "Store ID"
+msgstr "Store ID"
+
+msgctxt "Languages::addons.sslcommerz.store_password"
+msgid "Store password"
+msgstr "Store password"
+
+msgctxt "Languages::addons.sslcommerz.failed_connect"
+msgid "Failed to connect with SSLCommerz API."
+msgstr "Failed to connect with SSLCommerz API."
+
+msgctxt "Languages::addons.sslcommerz.help"
+msgid "Follow <a href=\"https://merchant.sslcommerz.com/\" target=\"_blank\">the link</a> and switch to the \"My stores -> IPN Settings\"</br>Enable \"Enable HTTP Listener\"</br>In the \"Enable HTTP Listener\" field, enter \"[callback_url]\""
+msgstr "Follow <a href=\"https://merchant.sslcommerz.com/\" target=\"_blank\">the link</a> and switch to the \"My stores -> IPN Settings\"</br>Enable \"Enable HTTP Listener\"</br>In the \"Enable HTTP Listener\" field, enter \"[callback_url]\""
+
+msgctxt "Languages::addons.sslcommerz.failed_hash_validation"
+msgid "Hash validation failed."
+msgstr "Hash validation failed."

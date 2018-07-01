@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>sslcommerz</id>
+    <version>4.7.4</version>
+    <priority>5000</priority>
+    <position>1</position>
+    <status>active</status>
+    <has_icon>Y</has_icon>
+    <default_language>en</default_language>
+    <supplier>C.M.Sayed</supplier>
+    <supplier_link>cmsayed@gmail.com</supplier_link>
+    <compatibility>
+        <core_version>
+            <min>4.4.0</min>
+        </core_version>
+        <core_edition>
+            ULTIMATE
+        </core_edition>
+    </compatibility>
+    <functions>
+        <item for="install">fn_sslcommerz_install</item>
+        <item for="uninstall">fn_sslcommerz_uninstall</item>
+    </functions>
+</addon>
