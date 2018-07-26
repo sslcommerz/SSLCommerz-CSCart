@@ -43,9 +43,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         if ($response['status'] == PaymentStatus::SSLCOMMERZ_VALID_STATUS || $response['status'] == PaymentStatus::SSLCOMMERZ_VALIDATED_STATUS) 
                         {
                             $store_password = isset($processor_data['store_password']) ? $processor_data['store_password'] : '';
-                            if (fn_sslcommerz_ipn_hash_varify($store_password, $response)) {
+                            if (fn_sslcommerz_ipn_hash_varify($store_password, $response)) {                                
                             $val_id = isset($response['val_id']) ? urlencode($response['val_id']) : '';
-                            $validate_url = $processor_data['processor_params']['mode'] == 'live' ? SSLCOMMERZ_VALIDATOR_LIVE_URL : SSLCOMMERZ_VALIDATOR_TEST_URL;
+                            
+                            if($processor_data['mode'] == "live")
+                            {
+                                $validate_url = SSLCOMMERZ_VALIDATOR_LIVE_URL;
+                            }
+                            else
+                            {
+                                $validate_url = SSLCOMMERZ_VALIDATOR_TEST_URL;
+                            }
+
+                           // $validate_url = $processor_data['mode'] == 'live' ? SSLCOMMERZ_VALIDATOR_LIVE_URL : SSLCOMMERZ_VALIDATOR_TEST_URL;
 
                             $requested_url = ($validate_url.'?val_id=' . $val_id . '&store_id=' . urlencode($store_id) . '&store_passwd=' . $store_password . '&v=1&format=json');
                             $curlport_ssl_host = Registry::get('config.current_host') != 'localhost';
