@@ -25,11 +25,17 @@ if (!defined('PAYMENT_NOTIFICATION')) {
         $post_data = fn_sslcommerz_merge_order_data($order_info, $processor_data);
 
 $fp = fopen(DIR_ROOT . "/ssl_commerz_log.txt", "a+");
-$debug = " \r\n\r\n Payment processor6: \r\n" . TIME . "\r\n" . ' ORDER ID: ' . $order_info['order_id'] . ' POST DATA: ' . serialize($post_data);
+$debug = " \r\n\r\n Payment processor62: \r\n" . TIME . "\r\n" . ' ORDER ID: ' . $order_info['order_id'] . ' POST DATA: ' . serialize($post_data)."\r\n" .'Processor_data'.serialize($processor_data['processor_params']['mode']);
 $test = fwrite($fp, $debug);
 fclose($fp);
         $curlport_ssl_varifypeer = Registry::get('config.current_host') != 'localhost';
+        //$direct_api_url = $processor_data['mode'] == 'live' ? SSLCOMMERZ_LIVE_URL : SSLCOMMERZ_TEST_URL;
         $direct_api_url = $processor_data['processor_params']['mode'] == 'live' ? SSLCOMMERZ_LIVE_URL : SSLCOMMERZ_TEST_URL;
+
+$fp = fopen(DIR_ROOT . "/ssl_commerz_log.txt", "a+");
+$debug = " \r\n\r\n Payment processor52: \r\n" . TIME . "\r\n" . ' ORDER ID: ' . $order_info['order_id'] ."\r\n" .'Processor_data'.serialize($processor_data['processor_params']['mode'])."\r\n" .'directapirul:'.$direct_api_url;
+$test = fwrite($fp, $debug);
+fclose($fp);
 
         $handle = curl_init();
         curl_setopt($handle, CURLOPT_URL, $direct_api_url );
@@ -50,7 +56,7 @@ fclose($fp);
             curl_close($handle);
 
 $fp = fopen(DIR_ROOT . "/ssl_commerz_log.txt", "a+");
-$debug = " \r\n\r\n Payment processor7: \r\n" . TIME . "\r\n" . ' ORDER ID: ' . $order_info['order_id'] . ' POST DATA: FALIED STATUS1';
+$debug = " \r\n\r\n Payment processor72: \r\n" . TIME . "\r\n" . ' ORDER ID: ' . $order_info['order_id'] . ' POST DATA: FALIED STATUS1'. "\r\n" .'SSL Response:'.serialize($sslcommerz_response);
 $test = fwrite($fp, $debug);
 fclose($fp);
             fn_sslcommerz_finish_payment($order_info['order_id'], array('order_status' => fn_sslcommerz_get_status(PaymentStatus::SSLCOMMERZ_FAILED_STATUS), 'reason_text' => __('addons.sslcommerz.failed_connect')));
@@ -61,7 +67,7 @@ fclose($fp);
 
         if (!empty($sslcz['GatewayPageURL'])) {
 $fp = fopen(DIR_ROOT . "/ssl_commerz_log.txt", "a+");
-$debug = " \r\n\r\n Payment processor8: \r\n" . TIME . "\r\n" . ' ORDER ID: ' . $order_info['order_id'] . ' POST DATA: EXIT';
+$debug = " \r\n\r\n Payment processor82: \r\n" . TIME . "\r\n" . ' ORDER ID: ' . $order_info['order_id'] . ' POST DATA: EXIT';
 $test = fwrite($fp, $debug);
 fclose($fp);
             echo "<meta http-equiv='refresh' content='0; url=".$sslcz['GatewayPageURL']."'>";
@@ -70,7 +76,7 @@ fclose($fp);
             $failed_reason = !empty($sslcz['failedreason']) ? $sslcz['failedreason'] : '';
 
 $fp = fopen(DIR_ROOT . "/ssl_commerz_log.txt", "a+");
-$debug = " \r\n\r\n Payment processor9: \r\n" . TIME . "\r\n" . ' ORDER ID: ' . $order_info['order_id'] . ' POST DATA: FALIED STATUS2';
+$debug = " \r\n\r\n Payment processor92: \r\n" . TIME . "\r\n" . ' ORDER ID: ' . $order_info['order_id'] . ' POST DATA: FALIED STATUS2';
 $test = fwrite($fp, $debug);
 fclose($fp);
             fn_sslcommerz_finish_payment($order_info['order_id'], array('order_status' => fn_sslcommerz_get_status(PaymentStatus::SSLCOMMERZ_FAILED_STATUS), 'reason_text' => $failed_reason));
