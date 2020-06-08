@@ -1,5 +1,13 @@
-CSCART 4.7.4 SSLCOMMERZ Payment Gateway Add-ons
-Installation Procedure
+# SSLCommerz - CS Cart
+
+### Prerequisites
+
+1. PHP 5.6-7.2 and Mysql.
+2. cURL php extension.
+3. [Sandbox Account](https://developer.sslcommerz.com/registration/ "SSLCommerz Sandbox Registration")
+4. CS Cart 4.7.4
+
+### Installation Procedure
 
 1.	Copy the files to specific folders.
 2.	Then go to your site admin panel>Add-ons>Manage add-ons>Browse all available add-ons
@@ -14,3 +22,11 @@ Installation Procedure
     a.	Disable all the existing currencies.
     b.	Add new currencies, BDT as primary currency. 
     Please check the screen shot Add BDT Currency.png for clarification.
+
+## Contributors
+
+> Cm. Saydur Rahman 
+
+> Prabal Mallick
+
+> integration@sslcommerz.com
