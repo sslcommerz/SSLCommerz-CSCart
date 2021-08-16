@@ -14,7 +14,7 @@
             <min>4.4.0</min>
         </core_version>
         <core_edition>
-            ULTIMATE
+            MULTIVENDOR,ULTIMATE
         </core_edition>
     </compatibility>
     <functions>
